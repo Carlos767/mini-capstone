@@ -4,10 +4,8 @@
     <p>Description: <%= @product.description %></p>
 
   <br></br>
-    <%= form_tag "/products/#{@product.id}", method: :patch do %>
-    Name: <input type="text" name="Name">
-    <input type="submit" value="Edit Listing">
-    <% end %>
+  <a class="btn btn-default" href="/products/<@= @product.id %>/edit" role="button">Edit</a>
+
   <br></br>
 
     <%= form_tag "/products/#{@product.id}", method: :delete do %>
