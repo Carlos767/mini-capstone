@@ -1,0 +1,22 @@
+  <div class="container">
+    <p>Name: <%= @product.name %></p>
+    <p>Price: <%= @product.price %></p>
+    <p>Description: <%= @product.description %></p>
+
+  <br></br>
+    <%= form_tag "/products/#{@product.id}", method: :patch do %>
+    Name: <input type="text" name="Name">
+    <input type="submit" value="Edit Listing">
+    <% end %>
+  <br></br>
+
+    <%= form_tag "/products/#{@product.id}", method: :delete do %>
+    <input type="submit" value="Delete product">
+    <% end %>
+
+   <br></br>
+    <%= form_tag "/products/", method: :get do %>
+    <input type="submit" value="Back to Listing">
+    <% end %>
+
+  </div>
