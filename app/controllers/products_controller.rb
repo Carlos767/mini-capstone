@@ -34,8 +34,11 @@ class ProductsController < ApplicationController
   def update
     product_id = params[:id]
     product = Product.find_by(id: product_id)
-    product.name = params[:name]
-    product.save
+    product.update(
+      name: params[:name], 
+      price: params[:price],
+      image: params[:image],
+      description: params[:description])
     flash[:success] = "Product successfully updated!"
     redirect_to "/products/#{product_id}"
   end

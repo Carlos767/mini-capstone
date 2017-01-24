@@ -3,18 +3,15 @@
     <p>Price: <%= @product.price %></p>
     <p>Description: <%= @product.description %></p>
 
+  <div class="row">
   <br></br>
-  <a class="btn btn-default" href="/products/<@= @product.id %>/edit" role="button">Edit</a>
+  <a class="btn btn-default" href="/products/<%= @product.id %>/edit" role="button">Edit</a>
 
-  <br></br>
+  <a class="btn btn-default" href="/products/<%= @product.id %>/destroy" role="button">Delete Product</a>
 
-    <%= form_tag "/products/#{@product.id}", method: :delete do %>
-    <input type="submit" value="Delete product">
-    <% end %>
+  
 
-   <br></br>
-    <%= form_tag "/products/", method: :get do %>
-    <input type="submit" value="Back to Listing">
-    <% end %>
+    <a class="btn btn-default" href="/products/<%= @product.id %>/products" role="button">Back to Listing</a>
+  </div>
 
   </div>

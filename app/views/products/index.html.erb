@@ -3,12 +3,17 @@
   <h2>Here is our extensive Product listing:</h2>
 </div>
 
-<div class="container">
-  
-  <% @products.each do |product| %>
-  <a href="/products/<%= product.id %>">Product: <%= product.name %></a>
-  <p>Price: <%= product.price %></p>
-  <p>Product Description: <%= product.description %></p>
-
-  <% end %>
-</div>
+<% @products.each_slice(3) do |three_products| %>
+  <div class="row">
+    <% three_products.each do |product| %>
+      <div class="col-med-4 col-sm-4">
+        <div class="well">
+        <a href="/products/<%= product.id %>">Product: <%= product.name %></a>
+        <p>Price: <%= product.price %></p>
+        <p>Product Description: <%= product.description %></p>
+        <img src="<%= product.image %>" alt=""><br>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
