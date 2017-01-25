@@ -1,7 +1,9 @@
   <div class="container">
     <p>Name: <%= @product.name %></p>
     <p>Price: <%= @product.price %></p>
+    <p>Image: <%=@product.image %></p>
     <p>Description: <%= @product.description %></p>
+    <p>Created at: <%= @product.created_at %></p>
 
   <div class="row">
   <br></br>
@@ -9,9 +11,6 @@
 
   <a class="btn btn-default" href="/products/<%= @product.id %>/destroy" role="button">Delete Product</a>
 
-  
-
-    <a class="btn btn-default" href="/products/<%= @product.id %>/products" role="button">Back to Listing</a>
-  </div>
-
-  </div>
+  <a class="btn btn-default" href="../products" role="button">Back to Listings</a>
+</div>
+</div>
