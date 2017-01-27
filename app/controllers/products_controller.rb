@@ -2,11 +2,22 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    render "index.html.erb"
+    if params[:sort] 
+      @products = Products.all.order(params[:sort] => params[:sort_order])
+    end
+    discount = params[:discount]
+    if discount
+      @products = Product.where("product < ?", 2)
+    end
+  end
+
+  def search
+    search_term = params[:search]
+    @products = Product.where("title LIKE ?", "%#{search_term}%")
+    render :index
   end
 
   def new
-    render "new.html.erb"
   end
 
   def create
@@ -22,13 +33,14 @@ class ProductsController < ApplicationController
   def show
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
-    render "show.html.erb"
+    if product_id == "random"
+      @product = Product.all.sample
+    end
   end
 
   def edit
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
-    render "edit.html.erb"
   end
 
   def update
@@ -49,9 +61,6 @@ class ProductsController < ApplicationController
     product.destroy
     flash[:success] = "Product successfully deleted!"
     redirect_to "/products/#{product_id}"
-  end
-
-
-    
+  end 
 
 end

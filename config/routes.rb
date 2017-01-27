@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post "/products" => "products#create"
 
+  post "/search" => "products#search"
+
   get "/products/:id" => "products#show"
 
   get "/products/:id/edit" => "products#edit"
