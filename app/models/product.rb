@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  belongs_to :supplier
+  has_many :images
 
   def description_list
     return descriptions.split(",")

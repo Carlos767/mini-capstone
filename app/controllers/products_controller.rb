@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(
+    @product = Product.create(
       name: params[:name], 
       price: params[:price],
       image: params[:image],
@@ -31,36 +31,34 @@ class ProductsController < ApplicationController
   end
 
   def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    @product = Product.find_by(id: params[:id])
     if product_id == "random"
       @product = Product.all.sample
+      @supplier = @product.supplier
+      @images = @product.images
     end
   end
 
   def edit
-    product_id = params[:id]
     @product = Product.find_by(id: product_id)
   end
 
   def update
-    product_id = params[:id]
-    product = Product.find_by(id: product_id)
-    product.update(
+    @product = Product.find_by(id: product_id)
+    @product.update(
       name: params[:name], 
       price: params[:price],
       image: params[:image],
+      supplier_id: params[:supplier_id],
       description: params[:description])
     flash[:success] = "Product successfully updated!"
     redirect_to "/products/#{product_id}"
   end
 
   def destroy
-    product_id = params[:id]
-    product = Product.find_by(id: product_id)
-    product.destroy
-    flash[:success] = "Product successfully deleted!"
-    redirect_to "/products/#{product_id}"
+    @product = Product.find_by(id: product_id)
+    @product.destroy
+    flash[:warning] = "Product successfully deleted!"
+    redirect_to "/"
   end 
-
 end

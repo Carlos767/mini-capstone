@@ -1,10 +1,11 @@
   <div class="container">
-    <h2><%= @product.name %></h2>
+    <h2><%= @product.name %></h2><span><p>Supplied by: <%= @supplier.name %></p></span>
     <h3 class="discounts"><%= @product.sale_message %></h3>
     <p>Price: <%= @product.price %></p>
     <p>Tax: <%= number_to_currency(@product.tax) %></p>
     <p>Total: <%= number_to_currency(@product.total) %></p>
-    <p>Image: <%=@product.image %></p>
+    <% @images.each do |image| %>
+    <img src="<%= image.url %>" alt="<% product.name %>"class="img-responsive">
     <p>Description: <%= @product.description %></p>
     <p>Created at: <%= @product.created_at %></p>
 

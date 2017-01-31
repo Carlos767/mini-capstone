@@ -13,7 +13,7 @@
         <a href="/products/<%= product.id %>">Product: <%= product.name %></a>
         <p>Price: <%= product.price %></p>
         <p>Product Description: <%= product.description %></p>
-        <img src="<%= product.image %>" alt=""><br>
+        <img src="<%= product.images.first.url %>" alt="<% product.name %>"class="img-responsive"><br>
         </div>
       </div>
     <% end %>
