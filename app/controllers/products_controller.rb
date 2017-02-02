@@ -1,10 +1,17 @@
 class ProductsController < ApplicationController
 
   def index
+    if session[:count]== nil
+      session[:count] = 0
+    end
+    session[:count] += 1
+    @visit_count = session[:count]
     @products = Product.all
+
     if params[:sort] 
       @products = Products.all.order(params[:sort] => params[:sort_order])
     end
+    
     discount = params[:discount]
     if discount
       @products = Product.where("product < ?", 2)
@@ -59,6 +66,6 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: product_id)
     @product.destroy
     flash[:warning] = "Product successfully deleted!"
-    redirect_to "/"
+    redirect_to "/products"
   end 
 end

@@ -1,189 +1,173 @@
 Product.destroy_all
 Supplier.destroy_all
-Image.destroy all
+Image.destroy_all
 
 Product.create!([
   {
     name: "Weepinbell", 
     price: "83.97", 
-    image: "image", 
     description: "Pacifidlog Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
    },
   {
     name: "Mr. Mime", 
-    price: "36.61", 
-    image: "image", 
+    price: "36.61",  
     description: "Fuchsia City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 2
     },
   {
     name: "Tentacruel", 
     price: "83.55", 
-    image: "image", 
     description: "Nuvema Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 3
     },
   {
     name: "Abra", 
-    price: "62.84", 
-    image: "image", 
+    price: "62.84",  
     description: "Four Island", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
     },
   {
     name: "Articuno", 
-    price: "40.56", 
-    image: "image", 
+    price: "40.56",  
     description: "Dewford Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 2
     },
   {
     name: "Wigglytuff", 
     price: "24.71", 
-    image: "image", 
     description: "Pacifidlog Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 3
     },
   {
     name: "Ponyta", 
     price: "37.58", 
-    image: "image", 
     description: "Hearthome City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 2
     },
   {
     name: "Seel", 
     price: "30.04", 
-    image: "image", 
     description: "Olivine City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
   },
   {
     name: "Krabby", 
-    price: "78.74", 
-    image: "image", 
+    price: "78.74",  
     description: "Floccesy Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 1
     },
   {
     name: "Nidoking", 
     price: "83.23", 
-    image: "image", 
     description: "Lilycove City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 3
     },
   {
     name: "Chansey", 
     price: "84.03", 
-    image: "image", 
     description: "Slateport City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
     },
   {
     name: "Mewtwo", 
-    price: "66.94", 
-    image: "image", 
+    price: "66.94",  
     description: "Goldenrod City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 2
     },
   {
     name: "Seaking", 
     price: "21.45", 
-    image: "image", 
     description: "Camphrier Town", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 3
     },
   {
     name: "new", 
-    price: "2345.0", 
-    image: nil, 
+    price: "2345.0",  
     description: "business", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
     },
   {name: "Kabutops", 
     price: "98.43", 
-    image: 
     description: "Fuchsia City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 2
     },
   {
     name: "Rattata", 
     price: "64.44", 
-    image: 
     description: "Cherrygrove City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 3
     },
   {
     name: "Mewtwo", 
     price: "34.73", 
     description: "Anistar City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: false, 
+    supplier_id: 2
     },
   {
     name: "Drowzee", 
     price: "43.65", 
-    description: "Snowpoint City", 
-    in_stock: nil, 
-    supplier_id: nil
+    description: "Swpoint City", 
+    in_stock: true, 
+    supplier_id: 2
     },
   {
     name: "Kommo-o", 
     price: "47.64", 
     description: "Cerulean City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 1
     },
   {
     name: "Golduck", 
     price: "30.86", 
     description: "Saffron City", 
-    in_stock: nil, 
-    supplier_id: nil
+    in_stock: true, 
+    supplier_id: 3
     },
   {
     name: "Tentacruel", 
     price: "21.19",  
     description: "Viridian City", 
-    in_stock: nil, 
+    in_stock: true, 
     supplier_id: 2
     },
   {
     name: "Bulbasaur", 
     price: "20.0", 
     description: "Bulbasaur available for your Pokedex", 
-    in_stock: nil, 
+    in_stock: true, 
     supplier_id: 1
     },
   {
     name: "Charmander", 
     price: "25.0", 
     description: "Charmander is ready for any attack!", 
-    in_stock: nil, 
+    in_stock: true, 
     supplier_id: 3
     },
   {
     name: "Pikachu", 
     price: "1000.34",  
     description: "Powerful Pokemon for your Pokedex", 
-    in_stock: nil, 
+    in_stock: true, 
     supplier_id: 2
   }
 ])

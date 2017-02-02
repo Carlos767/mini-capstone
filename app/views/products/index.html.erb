@@ -1,8 +1,11 @@
 <div class="center jumbotron">
 <h1>Hey Y'alls,</h1>
   <h2>Here is our extensive Product listing:</h2>
-  <a href="/products?sort=products&sort_order=desc">Sort by descending price</a>
-  <a href="/"
+
+  
+  <a href="/products?sort=products&sort_order=ASC">Sort by ascending price</a>
+  <a href="/products?sort=products&sort_order=DESC">Sort by descending price</a>
+  
 </div>
 
 <% @products.each_slice(3) do |three_products| %>
@@ -10,10 +13,11 @@
     <% three_products.each do |product| %>
       <div class="col-med-4 col-sm-4">
         <div class="well">
-        <a href="/products/<%= product.id %>">Product: <%= product.name %></a>
+        <p>Item: <%= product.name %></p>
         <p>Price: <%= product.price %></p>
-        <p>Product Description: <%= product.description %></p>
-        <img src="<%= product.images.first.url %>" alt="<% product.name %>"class="img-responsive"><br>
+        <P>Description: <%= product.description %></p>
+          <a href=<img src="<%= product.images %>"alt="<% product.name %>"class="img-responsive product_single_image"></a>
+
         </div>
       </div>
     <% end %>

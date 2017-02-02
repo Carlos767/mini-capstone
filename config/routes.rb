@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   get "/products" => "products#index"
 
+  post "/search" => "products#search"
+
   get "/products/new" => "products#new"
 
   post "/products" => "products#create"
-
-  post "/search" => "products#search"
 
   get "/products/:id" => "products#show"
 
@@ -19,6 +19,16 @@ Rails.application.routes.draw do
   get "/images/new" => "images#new"
 
   post "/images" => "images#create"
+
+  get "/signup" => "users#new"
+
+  post "/users" => "users#create"
+
+  get "/login" => "sessions#new"
+
+  post "/login" => "sessions#create"
+
+  get "/logout" => "sessions#destroy"
 
 end
 
