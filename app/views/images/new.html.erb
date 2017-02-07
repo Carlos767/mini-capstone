@@ -1,23 +1,26 @@
 <h1>Add a new Image:</h1>
 
-<%= form_tag "/images/", :class => "form-horizontal", method: :post do %>
+<section>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="product_single">
+            <h1>Create a new image:</h1>
 
-<div class="form-group">
-    <label for="name" class="col-sm-2 control-label">Web site Address</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="url" placeholder="URL">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="" class="col-sm-2 control-label">Product ID</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="product_id" placeholder="product_id">
-    </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Add Image</button>
-    </div>
-  </div>
-</div>
-  <% end %>
-</form>
+            <%= form_tag '/images', method: :post do %>
+
+              <div>
+                <%= label_tag :url %>
+                <%= text_field_tag :url %>
+              </div>
+              
+              <div>
+                <%= label_tag :product_id %>
+                <%= collection_select :product, :product_id, Product.all, :id, :name %>
+              </div>
+
+              <%= submit_tag "Process New Image" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+</section>

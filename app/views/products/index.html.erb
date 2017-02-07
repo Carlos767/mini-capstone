@@ -2,24 +2,23 @@
 <h1>Hey Y'alls,</h1>
   <h2>Here is our extensive Product listing:</h2>
 
-  
   <a href="/products?sort=products&sort_order=ASC">Sort by ascending price</a>
   <a href="/products?sort=products&sort_order=DESC">Sort by descending price</a>
-  
+
 </div>
 
-<% @products.each_slice(3) do |three_products| %>
+<section>
+  <% @products.each_slice(3) do |three_products| %>
   <div class="row">
     <% three_products.each do |product| %>
-      <div class="col-med-4 col-sm-4">
-        <div class="well">
-        <p>Item: <%= product.name %></p>
+      <div class="product_single">
+              <h2 class="product_header"><%= product.name %></h2>
         <p>Price: <%= product.price %></p>
+        <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.images.first %>" alt="<%= product.id %>" class="img-responsive product_single_image"></a>
         <P>Description: <%= product.description %></p>
-          <a href=<img src="<%= product.images %>"alt="<% product.name %>"class="img-responsive product_single_image"></a>
-
-        </div>
-      </div>
+         </div>
+       </div>
+       <% end %>
+    </div>
     <% end %>
-  </div>
-<% end %>
+  </section>

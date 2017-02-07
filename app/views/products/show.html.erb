@@ -1,20 +1,34 @@
-  <div class="container">
-    <h2><%= @product.name %></h2><span><p>Supplied by: <%= @supplier.name %></p></span>
-    <h3 class="discounts"><%= @product.sale_message %></h3>
-    <p>Price: <%= @product.price %></p>
-    <p>Tax: <%= number_to_currency(@product.tax) %></p>
-    <p>Total: <%= number_to_currency(@product.total) %></p>
-    <% @images.each do |image| %>
-    <img src="<%= image.url %>" alt="<% product.name %>"class="img-responsive">
-    <p>Description: <%= @product.description %></p>
-    <p>Created at: <%= @product.created_at %></p>
+  <section>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="product_single">
+          <h2><%= @product.name %></h2><span><p>Supplied by: <%= @supplier.name %></p></span>
+          
+            <p>Price: <%= @product.price %></p>
+           <H4>Category: </H4>
+           <p><%= @product.categories.each do |category| %>
+            <p><%= category.name %></p>
+            <% end %>
 
-  <div class="row">
-  <br></br>
-  <a class="btn btn-default" href="/products/<%= @product.id %>/edit" role="button">Edit</a>
+            <p>Tax: <%= number_to_currency(@product.tax) %></p>
+            <p>Total: <%= number_to_currency(@product.total) %></p>
+            <% @images.each do |image| %>
+            <img src="<%= image.url %>" alt="<% @product.id %>"class="img-responsive">
+            <% end %>
 
-  <a class="btn btn-default" href="/products/<%= @product.id %>/destroy" role="button">Delete Product</a>
+            <p>Description: <%= @product.description %></p>
+            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
 
-  <a class="btn btn-default" href="../products" role="button">Back to Listings</a>
-</div>
-</div>
+          <%= form_tag "/carted_products", :class => "form-horizontal", method: :post do %>
+            <div>
+              <%= label_tag :quantity %>
+              <%= text_field_tag :quantity %>
+              <%= hidden_field_tag :product_id, @product.id %>
+              <% submit_tag "Add to Cart" %>
+            </div>
+           <% end %>
+        </div>
+       </div>
+      </div>
+  </section>

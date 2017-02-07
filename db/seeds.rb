@@ -178,7 +178,7 @@ Supplier.create([{
     phone:"1-800-woo-woot"
     },
     {
-    name:"HokePoke.", 
+    name:"HokePoke", 
     email:"hoke@moke.com",
     phone:"1-888-mag-ical" 
     },
